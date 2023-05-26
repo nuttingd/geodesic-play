@@ -1,7 +1,6 @@
 import math
-
-# import matplotlib.pyplot as plt
-# from mpl_toolkits.mplot3d import Axes3D
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
 
 
 def generate_geodesic_dome_wireframe(radius, faces, floor_height_ratio):
@@ -43,4 +42,18 @@ floor_height_ratio = 0.25  # Specify the height ratio for the floor
 
 vertices = generate_geodesic_dome_wireframe(radius, faces, floor_height_ratio)
 
-print(vertices)
+# Plotting the dome vertices
+fig = plt.figure()
+ax = fig.add_subplot(111, projection="3d")
+
+x_vals = [vertex[0] for vertex in vertices]
+y_vals = [vertex[1] for vertex in vertices]
+z_vals = [vertex[2] for vertex in vertices]
+
+ax.scatter(x_vals, y_vals, z_vals, c="b", marker="o")
+
+ax.set_xlabel("X")
+ax.set_ylabel("Y")
+ax.set_zlabel("Z")
+
+plt.show()
